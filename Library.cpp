@@ -38,19 +38,23 @@ void dfs(int node)
 	topsort.push_back(node);	// DAG // Other way Indegree / Outdegree
 }
 
-int ConnectedComponenetsCnt()
-{
-	int cnt = 0;
-	lp(i, n)
-	{
-		if(!visited[i])	// Then no one reach this isolated node yet and its neighbors.
-		{
-			dfs(i);
-			cnt++;
-		}
-	}
-	return cnt;
+bool isSingleComponent() {
+    //because we use 'vis' global variable, we need to clear it before we start
+    //if you only call this function once, you don't need to clear it (because it is default initalized to false)
+ 
+    memset(vis, 0, sizeof vis); //function that clears array, use for-loop if you want.
+ 
+    //Start DFS from any node you want.
+    DFS(1);
+ 
+    //one-based loop because input is one-based
+    for (int i = 1; i <= n; i++) {
+        if (vis[i] == false)
+            return false;
+    }
+    return true;
 }
+
 
 void dfs_EdgeClassification(int node)
 {
