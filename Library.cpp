@@ -12,3 +12,10 @@ for(int i = 1 ; i <= g/i ; i++)
             if(g/i != i) dividors.push_back(g/i);;
         }
     }
+
+
+///Ceil division
+ll ceilDiv(ll a, ll b)
+{
+    return (a + b - 1)/b;
+}
