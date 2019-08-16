@@ -26,7 +26,7 @@ typedef map<int, int> imap;
 typedef map<char, int> cmap;
 typedef map<string, int> strmap;
 
-const int MAX  = 100005;
+const int MAX  = 1000005;
 vector<int> adj[MAX];
 int arr[MAX];
 int n, m;
@@ -42,23 +42,28 @@ int main()
 #endif
     while(cin >> n >> m)
     {
-        loop(i, 1, n)
+        lp(i, n)
         {
             int num;
-            cin >> arr[i];
-            adj[arr[i]].pb(i);
+            cin >> num;
+            adj[num].pb(i+1);
         }
 
         while(m--)
         {
             int occur, num;
             cin >> occur >> num;
-            cout << adj[num][occur-1] << "\n";
+            if(sz(adj[num]) < occur)
+                cout << 0 << "\n";
+            else
+                cout << adj[num][occur-1] << "\n";
         }
         loop(i, 1, n)
         {
             adj[arr[i]].clear();
         }
+
+
     }
 
 }
