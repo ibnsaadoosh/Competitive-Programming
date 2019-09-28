@@ -1,0 +1,102 @@
+///a = 97  z = 122
+///A = 65  Z = 90
+
+#include <bits/stdtr1c++.h>
+
+using namespace std;
+
+#define endl                "\n"
+#define pb                  push_back
+#define all(v)			    ((v).begin()), ((v).end())
+#define sz(v)			    ((int)((v).size()))
+#define ll                  long long
+#define rep(i,n)            for(int i=0 ; i<sz(n) ; i++)
+#define lp(i, n)            for(int i = 0 ; (int)i<n ; i++)
+#define loop(i, x, n)       for(int i=x ; (int)i<=n ; i++)
+#define mem(arr, v, n)      memset(arr, v, arr+n)
+
+typedef vector<int> vi;
+typedef deque<int> de;
+
+const int N = 30;
+bool vis[N];
+vector<int> arr[N];
+int arr2[30];
+int t, n, tree, con;
+
+void dfs(int node)
+{
+    vis[node] = 1;
+
+    rep(i, arr[node])
+    {
+        int child = arr[node][i];
+        if(!vis[child])
+        {
+            dfs(child);
+        }
+    }
+}
+
+void solve()
+{
+    memset(vis, 0, sizeof vis);
+
+    int temp = arr2[0];
+    if(sz(arr[temp]) > 0) tree++;
+    else con++;
+    dfs(temp);
+
+    for(int i = 1 ; i < n ; i++)
+    {
+        temp = arr2[i];
+        if(!vis[temp])
+        {
+            if(sz(arr[temp]) > 0) tree++;
+            else con++;
+            dfs(temp);
+        }
+    }
+    cout << "There are " << tree << " tree(s) and " << con << " acorn(s).\n";
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #else
+    #endif
+    cin >> t;
+    string str;
+    lp(i, t)
+    {
+        while(cin >> str)
+        {
+            if(str[0] == '*')
+            {
+                cin >> str;
+                n = sz(str) / 2 + 1;
+                int x = 0;
+                for(int i = 0 ; i<sz(str) ; i+= 2)
+                {
+                    int temp = str[i] - 'A';
+                    arr2[x++] = temp;
+                }
+                solve();
+                tree = 0; con = 0;
+                lp(i, 27)
+                {
+                    arr[i].clear();
+                }
+                break;
+            }
+            int from = str[1] - 'A', to = str[3] - 'A';
+            arr[from].pb(to);
+            arr[to].pb(from);
+        }
+    }
+
+    return 0;
+}
