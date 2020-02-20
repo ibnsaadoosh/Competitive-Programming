@@ -38,10 +38,8 @@ void findPermutations(string str)
     sort(all(str));	///all(str) : str.begin(), str.end()
     do
     {
-        //cout << str << endl;
         rep(i, str)
         {
-        //    mx = -1;
             for(int j = 0 ; j < str.size() ; j++)
             {
                 if(connect[str[i] - 'A'][str[j] - 'A'])
@@ -50,23 +48,18 @@ void findPermutations(string str)
                 }
             }
         }
-      //  res = min(res, mx);
         if(mx < res)
         {
             resStr = str;
             res = mx;
         }
-        //cout << str << " " << res << endl;
         mx = -1;
-       // break;
     } while (next_permutation(all(str)));
     rep(is, resStr)
     {
         cout << resStr[is] << " ";
     }
     cout << "-> " << res << endl;
-
- //   cout << resStr << " " << res << endl;
 }
 
 int main()
