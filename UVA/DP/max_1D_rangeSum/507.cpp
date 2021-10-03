@@ -31,6 +31,33 @@ int b, n;
 const int MAX = 2e4 + 5;
 int arr[MAX];
 
+void Max_1D_RangeSum(int itr)
+{
+    int localMax = 0, start = 0, endI = 0, tempSt = 0;
+    int globalMax = INT32_MIN;
+
+    for(int i = 0 ; i < n ; i++)
+    {
+        if(arr[i] > arr[i] + localMax)
+        {
+            tempSt = i;
+            localMax = arr[i];
+        }
+        else
+        {
+            localMax = arr[i] + localMax;
+        }
+        if(localMax > globalMax || (localMax == globalMax && (endI-start < i-tempSt)))
+        {
+            start = tempSt;
+            endI = i;
+            globalMax = localMax;
+        }
+    }
+    if(globalMax <= 0) cout << "Route " << itr << " has no nice parts\n";
+    else cout << "The nicest part of route " << itr << " is between stops " <<  start+1 << " and " << endI+2 << endl;
+}
+
 int main()
 {
 //    ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
@@ -46,31 +73,8 @@ int main()
     {
         cin >> n; n--;
         lp(i, n) cin >> arr[i];
-
-
-        int localMax = 0, start = 0, endI = 0, tempSt = 0;
-        int globalMax = INT32_MIN;
-
-        for(int i = 0 ; i < n ; i++)
-        {
-            if(arr[i] > arr[i] + localMax)
-            {
-                tempSt = i;
-                localMax = arr[i];
-            }
-            else
-            {
-                localMax = arr[i] + localMax;
-            }
-            if(localMax > globalMax || (localMax == globalMax && (endI-start < i-tempSt)))
-            {
-                start = tempSt;
-                endI = i;
-                globalMax = localMax;
-            }
-        }
-        if(globalMax <= 0) cout << "Route " << j << " has no nice parts\n";
-        else cout << "The nicest part of route " << j << " is between stops " <<  start+1 << " and " << endI+2 << endl;
+        vector<int> res;
+        Max_1D_RangeSum(j);
     }
     return 0;
 }
