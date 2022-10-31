@@ -1,0 +1,41 @@
+https://www.linkedin.com/posts/ahmed-khalifa-b75b03a9_%D8%A8%D9%82%D8%A7%D9%84%D9%8A-%D9%81%D8%AA%D8%B1%D9%87-%D8%A8%D8%AF%D8%B1%D8%B3-dynamic-programming-%D8%A7%D9%84%D9%85%D9%88%D8%B6%D9%88%D8%B9-activity-6992597417246248960-iIsM?utm_source=share&utm_medium=member_desktop
+
+بقالي فتره بدرس dynamic Programming
+الموضوع كان متعب جدا في الفهم في البدايه ،، قرأت مقالات كتير و شوفت فيديوهات كتير ،، معظمها كان حشو و اكواد غير مفهومه ،،
+لحد ما قابلت مجموعه من المواقع اللي بتشرح الموضوع بتعمق جدا و الاهم بمنتهي البساطه و الاكواد مكتوبه بشكل ممتاز جدا و حبيت اشاركها
+-------------------------
+في البدايه لازم نفهم طبيعيه ال Recursion
+- ايه هو ال Recursion
+- ازاي تعرف أن ال Recursion مناسب لحل المسألة أو لا
+- ازاي تعرف ال Recurrence Case or Formula
+دي من أهم النقط انك تعرف ال Math Formula بتاع ال Input الكلي بدلاله Input أقل زي مثلا
+في مساله Factorial:
+f(n) = n + f(n-1)
+في مساله ال Fibonacci sequence
+F(n) = F(n-1) + F(n-2)
+- ازاي تعرف ال Base Cases
+- ازاي تصمم و تحلل الحل بتاعك من خلال
+Method 1: Recursion Tree Method
+Method 2: Master theorem
+دول من اجمل المقالات اللي لقيتهم بيشرحوا النقط دي
+- https://lnkd.in/da6afd94
+- https://lnkd.in/dw_Kxzsk
+- https://lnkd.in/dPBE4CZy
+- https://lnkd.in/dq-pzP5x
+- https://lnkd.in/dJGRi87U
+- https://lnkd.in/dsGEXA3D
+- https://lnkd.in/dzE5yBzK
+---------------------------------------------
+شرح ال Dynamic Programming
+- شرح اساسيات و اهداف ال Dynamic Programming
+- شرح انواع ال Dynamic Programming
+Memoization: Known as the “top-down”
+Tabulation: Known as the “bottom-up ”
+- شرح مبادئ تحويل ال Recursion الي Dynamic Programming
+- شرح مساله ال Fibonacci Sequence
+- https://lnkd.in/dWQkyYxD
+- https://lnkd.in/dKhWt2Ek
+- https://lnkd.in/dkgw_y22
+- https://lnkd.in/dY3KTHSB
+- شرح مساله Knapsack
+https://lnkd.in/dGmKXFQh
